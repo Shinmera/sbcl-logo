@@ -22,9 +22,6 @@
           margin: 0;
           font-size: 28pt;
       }
-      .wrap:hover{
-          background-color: #FFFFFF;
-      }
       object{
           width:256px;
           height:256px;
@@ -50,26 +47,6 @@
         <p>Blocks</p>
       </div>
       <div class="wrap">
-        <object type="image/svg+xml" data="python-spiral.svg"></object>
-        <p>Spiral</p>
-      </div>
-      <div class="wrap">
-        <object type="image/svg+xml" data="python-inverted.svg"></object>
-        <p>Snake</p>
-      </div>
-      <div class="wrap">
-        <object type="image/svg+xml" data="python-circle.svg"></object>
-        <p>Snake Circle</p>
-      </div>
-      <div class="wrap">
-        <object type="image/svg+xml" data="python-rounded.svg"></object>
-        <p>Snake Rounded</p>
-      </div>
-      <div class="wrap">
-        <object type="image/svg+xml" data="python-square.svg"></object>
-        <p>Snake Square</p>
-      </div>
-      <div class="wrap">
         <object type="image/svg+xml" data="lettering.svg"></object>
         <p>Lettering</p>
       </div>
@@ -82,15 +59,38 @@
         <p>Thin Lettering Cutout</p>
       </div>
       <div class="wrap">
-        <object type="image/svg+xml" data="lizard.svg"></object>
+        <object type="image/svg+xml" data="python-spiral.svg" class="colorable"></object>
+        <p>Spiral</p>
+      </div>
+      <div class="wrap">
+        <object type="image/svg+xml" data="python-inverted.svg" class="colorable"></object>
+        <p>Snake</p>
+      </div>
+      <div class="wrap">
+        <object type="image/svg+xml" data="python-circle.svg" class="colorable"></object>
+        <p>Snake Circle</p>
+      </div>
+      <div class="wrap">
+        <object type="image/svg+xml" data="python-rounded.svg" class="colorable"></object>
+        <p>Snake Rounded</p>
+      </div>
+      <div class="wrap">
+        <object type="image/svg+xml" data="python-square.svg" class="colorable"></object>
+        <p>Snake Square</p>
+      </div>
+      <div class="wrap">
+        <object type="image/svg+xml" data="lizard.svg" class="colorable"></object>
         <p>Lizard</p>
       </div>
       <div class="wrap">
-        <object type="image/svg+xml" data="lizard-inverted.svg"></object>
+        <object type="image/svg+xml" data="lizard-inverted.svg" class="colorable"></object>
         <p>Inverted Lizard</p>
       </div>
     </main>
     <footer>
+      <p>
+        You can change the colours for the background and colourable logos here:
+      </p>
       <div><label>Background:</label> <input type="color" value="#FFFFFF" id="background" /></div>
       <div><label>Foreground:</label> <input type="color" value="#000000" id="foreground" /></div>
       <p>
@@ -102,7 +102,7 @@
           var background = document.getElementById("background");
           var foreground = document.getElementById("foreground");
           var main = document.getElementsByTagName("main")[0];
-          var imgs = document.getElementsByTagName("object");
+          var imgs = document.getElementsByClassName("colorable");
 
           var updateColors = function(){
               var bg = background.value;
@@ -110,12 +110,11 @@
               main.style.background = bg;
               for(var i=0; i<imgs.length; i++){
                   var img = imgs[i];
-                  try{
-                      var paths = img.contentDocument.querySelectorAll("path,circle");
-                      for(var j=0; j<paths.length; j++){
-                          paths.setAttribute("fill", fg);
-                      }
-                  }catch(e){}
+                  var paths = img.contentDocument.querySelectorAll("path,circle");
+                  for(var j=0; j<paths.length; j++){
+                      console.log(paths[j]);
+                      paths[j].style.fill = fg;
+                  }
               }
           }
           
