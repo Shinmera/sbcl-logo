@@ -23,9 +23,9 @@
           font-size: 28pt;
       }
       .wrap:hover{
-          background-color: #EEAA00;
+          background-color: #FFFFFF;
       }
-      img{
+      object{
           width:256px;
           height:256px;
       }
@@ -42,58 +42,87 @@
     </header>
     <main>
       <div class="wrap">
-        <img src="parens.svg" />
+        <object type="image/svg+xml" data="parens.svg"></object>
         <p>Parens</p>
       </div>
       <div class="wrap">
-        <img src="blocks.svg" />
+        <object type="image/svg+xml" data="blocks.svg"></object>
         <p>Blocks</p>
       </div>
       <div class="wrap">
-        <img src="python-spiral.svg" />
+        <object type="image/svg+xml" data="python-spiral.svg"></object>
         <p>Spiral</p>
       </div>
       <div class="wrap">
-        <img src="python-inverted.svg" />
+        <object type="image/svg+xml" data="python-inverted.svg"></object>
         <p>Snake</p>
       </div>
       <div class="wrap">
-        <img src="python-circle.svg" />
+        <object type="image/svg+xml" data="python-circle.svg"></object>
         <p>Snake Circle</p>
       </div>
       <div class="wrap">
-        <img src="python-rounded.svg" />
+        <object type="image/svg+xml" data="python-rounded.svg"></object>
         <p>Snake Rounded</p>
       </div>
       <div class="wrap">
-        <img src="python-square.svg" />
+        <object type="image/svg+xml" data="python-square.svg"></object>
         <p>Snake Square</p>
       </div>
       <div class="wrap">
-        <img src="lettering.svg" />
+        <object type="image/svg+xml" data="lettering.svg"></object>
         <p>Lettering</p>
       </div>
       <div class="wrap">
-        <img src="lettering-cutout.svg" />
+        <object type="image/svg+xml" data="lettering-cutout.svg"></object>
         <p>Lettering Cutout</p>
       </div>
       <div class="wrap">
-        <img src="lettering-cutout-thin.svg" />
+        <object type="image/svg+xml" data="lettering-cutout-thin.svg"></object>
         <p>Thin Lettering Cutout</p>
       </div>
       <div class="wrap">
-        <img src="lizard.svg" />
+        <object type="image/svg+xml" data="lizard.svg"></object>
         <p>Lizard</p>
       </div>
       <div class="wrap">
-        <img src="lizard-inverted.svg" />
+        <object type="image/svg+xml" data="lizard-inverted.svg"></object>
         <p>Inverted Lizard</p>
       </div>
     </main>
     <footer>
+      <div><label>Background:</label> <input type="color" value="#FFFFFF" id="background" /></div>
+      <div><label>Foreground:</label> <input type="color" value="#000000" id="foreground" /></div>
       <p>
         Please leave feedback on the <a href="https://github.com/Shinmera/sbcl-logo/issues/1">GitHub issue</a>.
       </p>
     </footer>
+    <script type="text/javascript">
+      var init = function(){
+          var background = document.getElementById("background");
+          var foreground = document.getElementById("foreground");
+          var main = document.getElementsByTagName("main")[0];
+          var imgs = document.getElementsByTagName("object");
+
+          var updateColors = function(){
+              var bg = background.value;
+              var fg = foreground.value;
+              main.style.background = bg;
+              for(var i=0; i<imgs.length; i++){
+                  var img = imgs[i];
+                  try{
+                      var paths = img.contentDocument.querySelectorAll("path,circle");
+                      for(var j=0; j<paths.length; j++){
+                          paths.setAttribute("fill", fg);
+                      }
+                  }catch(e){}
+              }
+          }
+          
+          background.addEventListener('input', updateColors);
+          foreground.addEventListener('input', updateColors);
+      };
+      document.addEventListener("DOMContentLoaded", init, false);
+    </script>
   </body>
 </html>
