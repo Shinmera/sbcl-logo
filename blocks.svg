@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.5"
-     inkscape:cx="-26.248479"
+     inkscape:cx="-57.793934"
      inkscape:cy="47.69647"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -34,7 +34,7 @@
      inkscape:grid-bbox="true"
      inkscape:window-width="1916"
      inkscape:window-height="1161"
-     inkscape:window-x="0"
+     inkscape:window-x="1920"
      inkscape:window-y="37"
      inkscape:window-maximized="0" />
   <metadata
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,41 +53,25 @@
      id="layer1"
      inkscape:label="Layer 1"
      inkscape:groupmode="layer">
-    <rect
+    <path
+       transform="matrix(0.93969262,0.34202015,-0.34202015,0.93969262,0,0)"
        style="opacity:0.75;fill:#00e223;fill-opacity:1;stroke:none"
-       id="rect6960"
-       width="28.501915"
-       height="28.501915"
-       x="15.113257"
-       y="-1.2209821"
-       ry="0"
-       transform="matrix(0.93969262,0.34202015,-0.34202015,0.93969262,0,0)" />
-    <rect
+       d="m 15.113257,-1.2209821 28.501915,0 0,28.5019151 -28.501915,0 z"
+       id="rect6960" />
+    <path
+       transform="matrix(0.98480775,0.17364818,-0.17364818,0.98480775,0,0)"
        style="opacity:0.75;fill:#c00000;fill-opacity:1;stroke:none"
-       id="rect6960-0"
-       width="28.501915"
-       height="28.501915"
-       x="34.610729"
-       y="19.497463"
-       ry="0"
-       transform="matrix(0.98480775,0.17364818,-0.17364818,0.98480775,0,0)" />
-    <rect
+       d="m 34.610729,19.497463 28.501915,0 0,28.501915 -28.501915,0 z"
+       id="rect6960-0" />
+    <path
+       transform="matrix(0.98480775,-0.17364818,0.17364818,0.98480775,0,0)"
        style="opacity:0.75;fill:#3f3f3f;fill-opacity:1;stroke:none"
-       id="rect6960-0-9"
-       width="28.501915"
-       height="28.501915"
-       x="-1.3125701"
-       y="33.972713"
-       ry="0"
-       transform="matrix(0.98480775,-0.17364818,0.17364818,0.98480775,0,0)" />
-    <rect
+       d="m -1.3125701,33.972713 28.5019151,0 0,28.501915 -28.5019151,0 z"
+       id="rect6960-0-9" />
+    <path
+       transform="matrix(0.8660254,-0.50000001,0.50000001,0.8660254,0,0)"
        style="opacity:0.75;fill:#e2e000;fill-opacity:1;stroke:none"
-       id="rect6960-0-9-3"
-       width="28.501915"
-       height="28.501915"
-       x="10.614253"
-       y="25.540972"
-       ry="0"
-       transform="matrix(0.8660254,-0.50000001,0.50000001,0.8660254,0,0)" />
+       d="m 10.614253,25.540972 28.501915,0 0,28.501915 -28.501915,0 z"
+       id="rect6960-0-9-3" />
   </g>
 </svg>
