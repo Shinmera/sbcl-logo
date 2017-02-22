@@ -93,6 +93,7 @@
       </p>
       <div><label>Background:</label> <input type="color" value="#FFFFFF" id="background" /></div>
       <div><label>Foreground:</label> <input type="color" value="#000000" id="foreground" /></div>
+      <div><label>Size:</label> <input type="range" min="8" max="256" value="256" id="size" />
       <p>
         Please leave feedback on the <a href="https://github.com/Shinmera/sbcl-logo/issues/1">GitHub issue</a>.
       </p>
@@ -101,25 +102,31 @@
       var init = function(){
           var background = document.getElementById("background");
           var foreground = document.getElementById("foreground");
+          var size = document.getElementById("size");
           var main = document.getElementsByTagName("main")[0];
-          var imgs = document.getElementsByClassName("colorable");
+          var imgs = document.getElementsByTagName("object");
 
-          var updateColors = function(){
+          var updateIcons = function(){
               var bg = background.value;
               var fg = foreground.value;
+              var sz = size.value;
               main.style.background = bg;
               for(var i=0; i<imgs.length; i++){
                   var img = imgs[i];
-                  var paths = img.contentDocument.querySelectorAll("path,circle");
-                  for(var j=0; j<paths.length; j++){
-                      console.log(paths[j]);
-                      paths[j].style.fill = fg;
+                  img.style.width = sz+"px";
+                  if(img.classList.contains("colorable")){
+                      var paths = img.contentDocument.querySelectorAll("path,circle");
+                      for(var j=0; j<paths.length; j++){
+                          console.log(paths[j]);
+                          paths[j].style.fill = fg;
+                      }
                   }
               }
           }
           
-          background.addEventListener('input', updateColors);
-          foreground.addEventListener('input', updateColors);
+          background.addEventListener('input', updateIcons);
+          foreground.addEventListener('input', updateIcons);
+          size.addEventListener('input', updateIcons);
       };
       document.addEventListener("DOMContentLoaded", init, false);
     </script>
