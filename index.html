@@ -7,7 +7,18 @@
           font-family: sans-serif;
           font-size: 28pt;
           text-align: center;
-          margin: 30px;
+          margin: 80px 0 0 0;
+      }
+      .settings{
+          background: white;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+      }
+      .settings div{
+          display: inline-block;
+          margin: 10px;
       }
       main{font-size: 0;}
       .wrap{
@@ -29,14 +40,11 @@
     </style>
   </head>
   <body>
-    <header>
-      <p>
-        These are proposals for a new logo for the <a href="http://sbcl.org">SBCL project</a>.
-      </p>
-      <p>
-        The colours are not final. The purpose of this is first and foremost to communicate and get feedback on the concepts.
-      </p>
-    </header>
+    <div class="settings">
+      <div><label>Background:</label> <input type="color" value="#FFFFFF" id="background" /></div>
+      <div><label>Foreground:</label> <input type="color" value="#000000" id="foreground" /></div>
+      <div><label>Size:</label> <input type="range" min="8" max="256" value="256" id="size" /></div>
+    </div>
     <main>
       <div class="wrap">
         <object type="image/svg+xml" data="lettering.svg"></object>
@@ -81,14 +89,14 @@
     </main>
     <footer>
       <p>
-        You can change the colours for the background and colourable logos here:
+        These are proposals for a new logo for the <a href="http://sbcl.org">SBCL project</a>.
       </p>
-      <div><label>Background:</label> <input type="color" value="#FFFFFF" id="background" /></div>
-      <div><label>Foreground:</label> <input type="color" value="#000000" id="foreground" /></div>
-      <div><label>Size:</label> <input type="range" min="8" max="256" value="256" id="size" />
-        <p>
-          Please leave feedback on the <a href="https://github.com/Shinmera/sbcl-logo/issues/1">GitHub issue</a>.
-        </p>
+      <p>
+        The colours are not final. The purpose of this is first and foremost to communicate and get feedback on the concepts.
+      </p>
+      <p>
+        Please leave feedback on the <a href="https://github.com/Shinmera/sbcl-logo/issues/1">GitHub issue</a>.
+      </p>
     </footer>
     <script type="text/javascript">
       var init = function(){
@@ -107,7 +115,7 @@
                   var img = imgs[i];
                   img.style.width = sz+"px";
                   if(img.classList.contains("colorable")){
-                      var paths = img.contentDocument.querySelectorAll("path,circle");
+                      var paths = img.contentDocument.querySelectorAll("path,circle,rect");
                       for(var j=0; j<paths.length; j++){
                           console.log(paths[j]);
                           paths[j].style.fill = fg;
